@@ -12,7 +12,4 @@ const getUserById = (id) => {
     return users.find((user) => user.id === id);
 };
 
-// test
-// console.log(getUserById(3));
-
 module.exports = { getAllUsers, getUserById };

@@ -28,7 +28,8 @@ describe("Users functions tests", () => {
     });
 
     it("Should getUserById function be defined", () => {
-        const user = getUserById(1);
+        const validUserId = 1;
+        const user = getUserById(validUserId);
         expect(user).toBeDefined();
     });
 
@@ -40,5 +41,18 @@ describe("Users functions tests", () => {
             email: "dotmeheart@outlook.com",
             password: "12345abcde",
         });
+    });
+
+    it("Should return the user with a valid ID", () => {
+        const userId = 1;
+        const user = getUserById(userId);
+        expect(user).toBeDefined();
+        expect(user.id).toBe(userId);
+    });
+
+    it("Should handle non-numeric or invalid ID gracefully", () => {
+        const invalidUserId = "invalidId";
+        const user = getUserById(invalidUserId);
+        expect(user).toBeUndefined();
     });
 });
