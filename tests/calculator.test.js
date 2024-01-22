@@ -16,6 +16,10 @@ test("It should divide 10 / 5 to equal 2", () => {
     expect(calculator.divide(10, 5)).toBe(2);
 });
 
+it("Should handle division by zero", () => {
+    expect(calculator.divide(8, 0)).toBe(Infinity);
+});
+
 test("It should return 2 to the power of 2 to equal 4", () => {
     expect(calculator.power(2, 2)).toBe(4);
 });
