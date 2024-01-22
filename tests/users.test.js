@@ -7,20 +7,30 @@ const { getAllUsers, getUserById } = require("../users.js");
 // READ documentation
 
 describe("Users functions tests", () => {
-    it("Should getAllUsers function be defined", () => {
+    it("Should 'getAllUsers' function be defined", () => {
         const users = getAllUsers();
         expect(users).toBeDefined();
+    });
+
+    it("Should return a non-empty list 'getAllUsers' function", () => {
+        const users = getAllUsers();
+        expect(users.length).toBeGreaterThan(0);
+    });
+
+    it("Should 'getAllUsers' function return an instance of an array", () => {
+        const users = getAllUsers();
+        expect(users).toBeInstanceOf(Array);
+    });
+
+    it("Should 'getAllUsers' function return a list of objects", () => {
+        const users = getAllUsers();
+        expect(users.every((item) => typeof item === "object")).toBe(true);
     });
 
     it("Should getUserById function be defined", () => {
         const user = getUserById(1);
         expect(user).toBeDefined();
     });
-
-    // it("Should return a non-empty list of users", () => {
-    //     const users = getAllUsers();
-    //     expect(users).toEqual();
-    // });
 
     it("Should return user information with the ID: 3", () => {
         const user = getUserById(3);
